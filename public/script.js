@@ -34,12 +34,13 @@ socket.on("users", (userList) => {
 socket.on("private-message", (data) => {
 
   if (data.from === username) {
-    addMessage("Me: " + data.message);
+    addMessage(data.message, "me");
   } else {
-    addMessage(data.from + ": " + data.message);
+    addMessage(data.from + ": " + data.message, "other");
   }
 
 });
+
 
 // Send message
 function send() {
@@ -62,18 +63,33 @@ function send() {
     from: username,
   });
 
-  addMessage("Me: " + msg);
+  addMessage(msg, "me");
+
 
   document.getElementById("msg").value = "";
 
 }
 
 // Add to UI
-function addMessage(text) {
+function addMessage(text, type = "other") {
 
   const div = document.createElement("div");
+
+  div.classList.add("message");
+
+  if (type === "me") {
+    div.classList.add("me");
+  } else {
+    div.classList.add("other");
+  }
+
   div.innerText = text;
 
-  document.getElementById("messages").appendChild(div);
+  const messages = document.getElementById("messages");
 
+  messages.appendChild(div);
+
+  // Auto scroll
+  messages.scrollTop = messages.scrollHeight;
 }
+

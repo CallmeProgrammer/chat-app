@@ -1,4 +1,4 @@
-/* Reset */
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,9 +6,9 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #121212;
-  color: white;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0f172a;
+  color: #fff;
   height: 100vh;
 }
 
@@ -18,10 +18,10 @@ body {
   width: 90%;
   max-width: 350px;
   margin: 120px auto;
-  background: #222;
+  background: #020617;
   padding: 25px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .login-box h2 {
@@ -30,24 +30,21 @@ body {
 
 .login-box input {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   margin: 12px 0;
-  border-radius: 5px;
+  border-radius: 8px;
   border: none;
 }
 
 .login-box button {
   width: 100%;
-  padding: 12px;
-  background: #4caf50;
+  padding: 14px;
+  background: #22c55e;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-weight: bold;
   cursor: pointer;
-}
-
-.login-box button:hover {
-  background: #43a047;
 }
 
 /* ================= CHAT ================= */
@@ -55,89 +52,108 @@ body {
 .chat-container {
   display: flex;
   height: 100vh;
-  width: 100%;
+  background: #020617;
 }
 
-/* User List */
+/* USER LIST (DESKTOP) */
 .users {
   width: 220px;
-  background: #1e1e1e;
+  background: #020617;
+  border-right: 1px solid #1e293b;
   padding: 10px;
   overflow-y: auto;
 }
 
 .users button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin-bottom: 6px;
-  background: #333;
+  background: #020617;
+  border: 1px solid #1e293b;
   color: white;
-  border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
-.users button:hover {
-  background: #555;
-}
-
-/* Chat Area */
+/* CHAT AREA */
 .chat-box {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* Messages */
+/* MESSAGES */
 #messages {
   flex: 1;
-  padding: 12px;
+  padding: 15px;
   overflow-y: auto;
-  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
 }
 
-#messages div {
+/* MESSAGE BUBBLES */
+.message {
+  max-width: 75%;
+  padding: 10px 14px;
   margin-bottom: 8px;
-  padding: 6px 8px;
-  background: #222;
-  border-radius: 5px;
-  max-width: 80%;
+  border-radius: 15px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  font-size: 15px;
 }
 
-/* Input Area */
+/* MY MESSAGE */
+.me {
+  align-self: flex-end;
+  background: #22c55e;
+  color: #020617;
+  border-bottom-right-radius: 4px;
+}
+
+/* OTHER MESSAGE */
+.other {
+  align-self: flex-start;
+  background: #1e293b;
+  border-bottom-left-radius: 4px;
+}
+
+/* INPUT BAR */
 .input-box {
   display: flex;
   padding: 10px;
-  background: #222;
+  background: #020617;
+  border-top: 1px solid #1e293b;
 }
 
 .input-box input {
   flex: 1;
-  padding: 12px;
-  border-radius: 5px;
+  padding: 14px;
+  border-radius: 20px;
   border: none;
+  background: #1e293b;
+  color: white;
+  font-size: 15px;
+}
+
+.input-box input:focus {
   outline: none;
 }
 
 .input-box button {
   margin-left: 8px;
   padding: 12px 18px;
-  background: #4caf50;
-  color: white;
+  border-radius: 50%;
+  background: #22c55e;
+  color: #020617;
   border: none;
-  border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.input-box button:hover {
-  background: #43a047;
-}
-
-/* ================= MOBILE RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
 
-  /* Stack layout */
   .chat-container {
     flex-direction: column;
   }
@@ -145,51 +161,50 @@ body {
   /* Users on top */
   .users {
     width: 100%;
-    height: 80px;
+    height: 65px;
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 5px;
-  }
-
-  .users button {
-    min-width: 100px;
-    margin-right: 6px;
-    font-size: 14px;
-  }
-
-  /* Messages full screen */
-  #messages {
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  /* Bigger input for fingers */
-  .input-box input {
-    padding: 14px;
-    font-size: 15px;
-  }
-
-  .input-box button {
-    padding: 14px;
-    font-size: 15px;
-  }
-}
-
-/* ================= SMALL PHONES ================= */
-
-@media (max-width: 480px) {
-
-  .login-box {
-    margin-top: 80px;
+    border-right: none;
+    border-bottom: 1px solid #1e293b;
   }
 
   .users button {
     min-width: 90px;
+    margin-right: 6px;
     font-size: 13px;
   }
 
-  #messages div {
+  /* Messages */
+  #messages {
+    padding: 10px;
+  }
+
+  .message {
+    font-size: 14px;
+    max-width: 85%;
+  }
+
+  /* Input */
+  .input-box input {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .input-box button {
+    padding: 12px 14px;
+  }
+}
+
+/* SMALL PHONES */
+@media (max-width: 480px) {
+
+  .users button {
+    min-width: 80px;
+    font-size: 12px;
+  }
+
+  .message {
     max-width: 90%;
   }
 }
