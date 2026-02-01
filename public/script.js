@@ -1,16 +1,33 @@
-// Mobile menu toggle
+// ================= MOBILE MENU =================
+
 document.addEventListener("DOMContentLoaded", () => {
+
   const menuBtn = document.getElementById("menuBtn");
   const usersPanel = document.getElementById("users");
+  const msgInput = document.getElementById("msg");
 
+  // Toggle users panel
   if (menuBtn && usersPanel) {
     menuBtn.addEventListener("click", () => {
       usersPanel.classList.toggle("show");
     });
   }
+
+  // Send on Enter key
+  if (msgInput) {
+    msgInput.addEventListener("keydown", (e) => {
+
+      if (e.key === "Enter") {
+        e.preventDefault();
+        send();
+      }
+
+    });
+  }
+
 });
 
-// Socket connection
+// ================= SOCKET =================
 
 const socket = io("https://chat-backend-yeie.onrender.com");
 
@@ -20,53 +37,64 @@ socket.emit("join", username);
 
 let selectedUser = null;
 
-// Show users
+// ================= USERS LIST =================
+
 socket.on("users", (userList) => {
+
   const usersDiv = document.getElementById("users");
+  const usersPanel = document.getElementById("users");
+
   usersDiv.innerHTML = "";
 
   userList.forEach((user) => {
+
     if (user === username) return;
 
     const btn = document.createElement("button");
     btn.innerText = user;
 
     btn.onclick = () => {
+
       selectedUser = user;
 
-      // Remove active from all buttons
-      document.querySelectorAll(".users button").forEach((b) => {
+      // Remove previous highlight
+      document.querySelectorAll(".users button").forEach(b => {
         b.classList.remove("active");
       });
 
-      // Add active to selected
+      // Highlight selected
       btn.classList.add("active");
 
-      // Auto close menu on mobile
+      // Close panel on mobile
       usersPanel.classList.remove("show");
     };
 
     usersDiv.appendChild(btn);
+
   });
+
 });
 
-// Receive message
+// ================= RECEIVE MESSAGE =================
+
 socket.on("private-message", (data) => {
+
   if (data.from === username) {
     addMessage(data.message, "me");
   } else {
     addMessage(data.from + ": " + data.message, "other");
   }
+
 });
 
-// Send message
-function send() {
-  const msg = document.getElementById("msg").value;
+// ================= SEND MESSAGE =================
 
-  if (!msg) {
-    alert("Type message");
-    return;
-  }
+function send() {
+
+  const input = document.getElementById("msg");
+  const msg = input.value.trim();
+
+  if (!msg) return;
 
   if (!selectedUser) {
     alert("Select user first");
@@ -81,11 +109,13 @@ function send() {
 
   addMessage(msg, "me");
 
-  document.getElementById("msg").value = "";
+  input.value = "";
 }
 
-// Add to UI
+// ================= ADD MESSAGE =================
+
 function addMessage(text, type = "other") {
+
   const div = document.createElement("div");
 
   div.classList.add("message");
