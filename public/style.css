@@ -182,6 +182,14 @@ body {
   background: #1e293b;
 }
 
+/* Active / Selected User */
+.users button.active {
+  background: #22c55e;
+  color: #020617;
+  border-color: #22c55e;
+  font-weight: bold;
+}
+
 /* ================= CHAT BOX ================= */
 
 .chat-box {

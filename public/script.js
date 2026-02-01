@@ -1,6 +1,5 @@
 // Mobile menu toggle
 document.addEventListener("DOMContentLoaded", () => {
-
   const menuBtn = document.getElementById("menuBtn");
   const usersPanel = document.getElementById("users");
 
@@ -9,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
       usersPanel.classList.toggle("show");
     });
   }
-
 });
 
 // Socket connection
@@ -36,7 +34,15 @@ socket.on("users", (userList) => {
     btn.onclick = () => {
       selectedUser = user;
 
-      // Close menu on mobile
+      // Remove active from all buttons
+      document.querySelectorAll(".users button").forEach((b) => {
+        b.classList.remove("active");
+      });
+
+      // Add active to selected
+      btn.classList.add("active");
+
+      // Auto close menu on mobile
       usersPanel.classList.remove("show");
     };
 
