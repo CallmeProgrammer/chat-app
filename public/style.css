@@ -1,42 +1,195 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: #121212;
   color: white;
+  height: 100vh;
 }
+
+/* ================= LOGIN ================= */
+
+.login-box {
+  width: 90%;
+  max-width: 350px;
+  margin: 120px auto;
+  background: #222;
+  padding: 25px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin-bottom: 15px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 5px;
+  border: none;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #43a047;
+}
+
+/* ================= CHAT ================= */
 
 .chat-container {
   display: flex;
   height: 100vh;
+  width: 100%;
 }
 
+/* User List */
 .users {
-  width: 200px;
-  background: #222;
+  width: 220px;
+  background: #1e1e1e;
   padding: 10px;
+  overflow-y: auto;
 }
 
 .users button {
   width: 100%;
-  margin: 5px 0;
+  padding: 10px;
+  margin-bottom: 6px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
+.users button:hover {
+  background: #555;
+}
+
+/* Chat Area */
 .chat-box {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
+/* Messages */
 #messages {
   flex: 1;
+  padding: 12px;
   overflow-y: auto;
-  padding: 10px;
+  line-height: 1.5;
 }
 
+#messages div {
+  margin-bottom: 8px;
+  padding: 6px 8px;
+  background: #222;
+  border-radius: 5px;
+  max-width: 80%;
+}
+
+/* Input Area */
 .input-box {
   display: flex;
+  padding: 10px;
+  background: #222;
 }
 
 .input-box input {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.input-box button {
+  margin-left: 8px;
+  padding: 12px 18px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-box button:hover {
+  background: #43a047;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  /* Stack layout */
+  .chat-container {
+    flex-direction: column;
+  }
+
+  /* Users on top */
+  .users {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 5px;
+  }
+
+  .users button {
+    min-width: 100px;
+    margin-right: 6px;
+    font-size: 14px;
+  }
+
+  /* Messages full screen */
+  #messages {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* Bigger input for fingers */
+  .input-box input {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .input-box button {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+/* ================= SMALL PHONES ================= */
+
+@media (max-width: 480px) {
+
+  .login-box {
+    margin-top: 80px;
+  }
+
+  .users button {
+    min-width: 90px;
+    font-size: 13px;
+  }
+
+  #messages div {
+    max-width: 90%;
+  }
 }
