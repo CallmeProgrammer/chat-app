@@ -9,7 +9,8 @@
 /* ================= BODY ================= */
 
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
+  /* font-family: "Segoe UI", Arial, sans-serif; */
+   font-family: "Pixelify Sans", "Segoe UI", Arial, sans-serif;
   background: #000000;
   color: white;
 
