@@ -1,46 +1,55 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <title>Chat</title>
+  <!-- Mobile viewport (VERY IMPORTANT) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chat App</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+  <!-- Top Bar (Mobile) -->
+  <div class="top-bar">
+    <button id="menuBtn">☰</button>
+    <span class="title">Chat</span>
+  </div>
+
+  <!-- Main Layout -->
   <div class="chat-container">
 
-    <!-- Top Bar (Mobile) -->
-    <div class="top-bar">
-      <button id="menuBtn">☰</button>
-      <span class="title">Chat</span>
-    </div>
+    <!-- Users Panel -->
+    <div class="users" id="users"></div>
 
-    <div class="chat-container">
+    <!-- Chat Area -->
+    <div class="chat-box">
 
-      <!-- Users Panel -->
-      <div class="users" id="users"></div>
+      <!-- Messages -->
+      <div id="messages"></div>
 
-      <!-- Chat Area -->
-      <div class="chat-box">
-
-        <div id="messages"></div>
-
-        <div class="input-box">
-          <input id="msg" placeholder="Type a message..." />
-          <button onclick="send()">➤</button>
-        </div>
-
+      <!-- Input -->
+      <div class="input-box">
+        <input
+          type="text"
+          id="msg"
+          placeholder="Type a message..."
+          autocomplete="off"
+        >
+        <button onclick="send()">➤</button>
       </div>
 
     </div>
 
-    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
-    <script src="script.js"></script>
+  </div>
+
+  <!-- Socket -->
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+  <!-- App Script -->
+  <script src="script.js"></script>
 
 </body>
-
 </html>
