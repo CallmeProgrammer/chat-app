@@ -5,11 +5,21 @@
   padding: 0;
 }
 
-body {
+/* body {
   font-family: "Segoe UI", Arial, sans-serif;
   background: #0f172a;
   color: #fff;
   height: 100vh;
+} */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0f172a;
+  color: #fff;
+
+  height: 100vh;
+  width: 100vw;
+
+  overflow: hidden;
 }
 
 /* ================= LOGIN ================= */
@@ -92,7 +102,7 @@ body {
 }
 
 /* MESSAGE BUBBLES */
-.message {
+/* .message {
   max-width: 75%;
   padding: 10px 14px;
   margin-bottom: 8px;
@@ -100,6 +110,17 @@ body {
   line-height: 1.4;
   word-wrap: break-word;
   font-size: 15px;
+} */
+#messages {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+
+  width: 100%;
+  max-width: 100%;
+
+  display: flex;
+  flex-direction: column;
 }
 
 /* MY MESSAGE */
@@ -118,13 +139,22 @@ body {
 }
 
 /* INPUT BAR */
-.input-box {
+/* .input-box {
   display: flex;
   padding: 10px;
   background: #020617;
   border-top: 1px solid #1e293b;
-}
+} */
+.input-box {
+  display: flex;
+  padding: 8px;
+  background: #020617;
+  border-top: 1px solid #1e293b;
 
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
 .input-box input {
   flex: 1;
   padding: 14px;
@@ -154,8 +184,12 @@ body {
 
 @media (max-width: 768px) {
 
+  body {
+    height: 100dvh;
+  }
+
   .chat-container {
-    flex-direction: column;
+    height: 100dvh;
   }
 
   /* Users on top */
