@@ -25,6 +25,34 @@ body {
 
   overflow-x: hidden;
 }
+/* ================= QR CODE ================= */
+
+.qr-img {
+  width: 40vw;        /* 40% of screen width */
+  max-width: 160px;  /* Max size on big screens */
+  min-width: 110px;  /* Min size on small phones */
+
+  height: auto;
+
+  margin: 15px auto 8px;
+
+  display: block;
+
+  background: white;
+  padding: 6px;
+
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.qr-text {
+  font-size: clamp(12px, 3vw, 14px);
+  color: #94a3b8;
+
+  margin-bottom: 14px;
+  text-align: center;
+}
+
 
 /* ================= LOGIN ================= */
 
@@ -32,10 +60,10 @@ body {
   width: 90%;
   max-width: 360px;
 
-  margin: 120px auto;
+  margin: 10vh auto;
 
   background: #020617;
-  padding: 28px;
+  padding: 24px;
 
   text-align: center;
 
@@ -44,6 +72,7 @@ body {
 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
+
 
 .login-box h2 {
   margin-bottom: 18px;

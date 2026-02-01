@@ -1,33 +1,39 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Login</title>
-     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap"
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="login-box">
-      <h2>Join Chat</h2>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-      <input id="username" placeholder="Enter your name" />
-      <button onclick="joinChat()">Join</button>
-    </div>
+<body>
+  <div class="login-box">
+    <h2>Join Chat</h2>
+    <!-- QR Code -->
+    <img src="Scan Me.png" alt="QR Code" class="qr-img">
 
-    <script>
-      function joinChat() {
-        const name = document.getElementById("username").value;
 
-        if (!name) {
-          alert("Please enter name");
-          return;
-        }
+    <input id="username" placeholder="Enter your name" />
+    <button onclick="joinChat()">Join</button>
+  </div>
 
-        localStorage.setItem("username", name);
-        window.location = "chat.html";
+  <script>
+    function joinChat() {
+      const name = document.getElementById("username").value;
+
+      if (!name) {
+        alert("Please enter name");
+        return;
       }
-    </script>
-  </body>
+
+      localStorage.setItem("username", name);
+      window.location = "chat.html";
+    }
+  </script>
+</body>
+
 </html>
