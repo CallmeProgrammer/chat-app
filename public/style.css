@@ -15,11 +15,9 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
   background: #0f172a;
   color: #fff;
-
-  height: 100vh;
-  width: 100vw;
-
-  overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 /* ================= TOPBAR ================= */
 .top-bar {
@@ -85,7 +83,7 @@ body {
 
 .chat-container {
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 50px);
   background: #020617;
 }
 
@@ -99,7 +97,6 @@ body {
 
   transition: transform 0.3s ease;
 }
-
 
 .users button {
   width: 100%;
@@ -138,7 +135,7 @@ body {
   word-wrap: break-word;
   font-size: 15px;
 } */
- .message {
+.message {
   max-width: 75%;
   padding: 12px 16px;
   margin-bottom: 10px;
@@ -222,10 +219,9 @@ body {
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
-
   /* Show top bar */
   .top-bar {
-    display: flex;
+    display: flex !important;
   }
 
   .chat-container {
@@ -273,7 +269,6 @@ body {
 
 /* SMALL PHONES */
 @media (max-width: 480px) {
-
   .users button {
     min-width: 80px;
     font-size: 12px;

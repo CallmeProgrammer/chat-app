@@ -1,12 +1,17 @@
 // Mobile menu toggle
-const menuBtn = document.getElementById("menuBtn");
-const usersPanel = document.getElementById("users");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (menuBtn) {
-  menuBtn.addEventListener("click", () => {
-    usersPanel.classList.toggle("show");
-  });
-}
+  const menuBtn = document.getElementById("menuBtn");
+  const usersPanel = document.getElementById("users");
+
+  if (menuBtn && usersPanel) {
+    menuBtn.addEventListener("click", () => {
+      usersPanel.classList.toggle("show");
+    });
+  }
+
+});
+
 // Socket connection
 
 const socket = io("https://chat-backend-yeie.onrender.com");
